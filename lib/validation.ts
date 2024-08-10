@@ -8,7 +8,7 @@ export const formSchema = z.object({
   //     message: "Le nom doit avoir 2 caractères minimum.",
   //   }),
   fullname: z.string().min(5, {
-    message: "Le nom doit avoir 5 caractères minimum.",
+    message: "Le Prénom et le nom doivent avoir 5 caractères minimum.",
   }),
   phone: z
     .string()
@@ -27,11 +27,9 @@ export const formSchema = z.object({
     ),
 });
 
-
-
 export interface Talibe {
-    fullname: string;
-    phone: string;
-    dahiraname: string;
-    profile: string;
-  }
+  fullname: string;
+  phone: string;
+  dahiraname: string;
+  profile: string;
+}
