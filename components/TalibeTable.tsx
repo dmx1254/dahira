@@ -14,7 +14,7 @@ const TalibeTable = ({ talibes }: { talibes: TalibeUser[] }) => {
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
             <th className="py-2 px-4 text-left text-sm sm:text-base">ID</th>
             <th className="py-2 px-4 text-left text-sm sm:text-base">
-              Prénom et nom
+              Nom
             </th>
             <th className="py-2 px-4 text-left text-sm sm:text-base">
               Téléphone
