@@ -40,6 +40,6 @@ export interface TalibeUser {
   phone: string;
   dahiraname: string;
   profile: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

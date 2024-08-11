@@ -18,20 +18,6 @@ export default function Home() {
           className="rounded-[10px]"
         />
       </div>
-      {/* <div className="absolute left-[78%] top-[1%]">
-        <p
-          className="max-w-[300px] text-center italic text-base p-1 rounded"
-          style={{
-            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-          }}
-        >
-          Le script doit permettre de collecter de manière efficace et sécurisée
-          les informations des membres de chaque Dahira affilié au Konu Cheikh
-          Oumar Foutiyou Tall. L'objectif est de centraliser ces données dans
-          une base de données unique qui sera utilisée pour la génération de
-          cartes membres numériques.
-        </p>
-      </div> */}
 
       <div className="w-full flex flex-col items-center justify-center my-8">
         <RegisterForm />

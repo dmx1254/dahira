@@ -14,7 +14,7 @@ const TalibeTable = ({ talibes }: { talibes: TalibeUser[] }) => {
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
             <th className="py-2 px-4 text-left text-sm sm:text-base">ID</th>
             <th className="py-2 px-4 text-left text-sm sm:text-base">
-              Nom
+              Prénom et nom
             </th>
             <th className="py-2 px-4 text-left text-sm sm:text-base">
               Téléphone
@@ -27,7 +27,7 @@ const TalibeTable = ({ talibes }: { talibes: TalibeUser[] }) => {
           </tr>
         </thead>
         <tbody className="text-gray-600 text-base font-light">
-          {talibes.map((talibe, index) => (
+          {talibes?.map((talibe, index) => (
             <tr key={talibe._id} className="border-b border-gray-400">
               <td className="py-2 px-4 font-bold">{formatNumber(index + 1)}</td>
               <td className="py-2 px-4">
