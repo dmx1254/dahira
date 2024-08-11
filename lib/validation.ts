@@ -33,3 +33,13 @@ export interface Talibe {
   dahiraname: string;
   profile: string;
 }
+
+export interface TalibeUser {
+  _id: string;
+  fullname: string;
+  phone: string;
+  dahiraname: string;
+  profile: string;
+  createdAt: string;
+  updatedAt: string;
+}

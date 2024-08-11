@@ -1,6 +1,6 @@
 "use server";
 
-import { createTalibe } from "./api";
+import { createTalibe, getAllTalibes } from "./api";
 import { parseStringify } from "./utils";
 import { Talibe } from "./validation";
 
@@ -14,5 +14,14 @@ export const registerTalibe = async (talibe: Talibe) => {
     }
   } catch (error: any) {
     throw new Error(error);
+  }
+};
+
+export const getTalibes = async () => {
+  try {
+    const talibes = await getAllTalibes();
+    return parseStringify(talibes);
+  } catch (error) {
+    console.log(error);
   }
 };

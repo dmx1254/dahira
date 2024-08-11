@@ -20,3 +20,12 @@ export const convertFileToBase64 = (file: File): Promise<string> => {
 };
 
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
+
+export const convertDate = (date: Date) => {
+  const convertedDate = new Date(date).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return convertedDate;
+};

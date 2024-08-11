@@ -26,3 +26,12 @@ export async function createTalibe(talibe: Talibe) {
     throw new Error(error);
   }
 }
+
+export async function getAllTalibes() {
+  try {
+    const talibes = await TalibeModel.find().sort({ createdAt: 1 });
+    return talibes;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
