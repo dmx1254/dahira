@@ -9,6 +9,8 @@ import PhoneInput from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js/core";
 import "react-phone-number-input/style.css";
 
+import { LockKeyhole } from "lucide-react";
+
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
@@ -99,17 +101,18 @@ const LoginForm = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="relative">
                 <FormLabel>Mot de passe</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="********"
+                    placeholder="Mot de passe"
                     type="password"
-                    className="bg-white border-gray-400 text-black focus-visible:ring-0"
+                    className="bg-white border-gray-400 text-black focus-visible:ring-0 pl-8"
                     {...field}
                     onChange={field.onChange}
                   />
                 </FormControl>
+                <LockKeyhole size={18} className="absolute top-[46%] left-[3%] text-gray-800" />
                 <FormMessage />
               </FormItem>
             )}
