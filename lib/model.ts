@@ -21,6 +21,14 @@ const TalibeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    password: {
+      type: String,
+      default: "ajcviosajcipowqs;asghcuahbcuas1452asghca",
+    },
   },
   {
     timestamps: true,

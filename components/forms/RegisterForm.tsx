@@ -53,6 +53,7 @@ const RegisterForm = () => {
         toast.success(patient.message, {
           style: { color: "green" },
         });
+        form.reset();
       }
     } catch (error: any) {
       if (error?.message) {
