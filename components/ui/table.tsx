@@ -28,7 +28,8 @@ const Table = async ({
   );
   const products: TalibeUser[] = talibes;
   function formatNumber(index: number) {
-    return index.toString().padStart(5, "0");
+    let calculatedIndex: number = index + (currentPage - 1) * 10;
+    return calculatedIndex.toString().padStart(5, "0");
   }
   // console.log(products);
   return (
