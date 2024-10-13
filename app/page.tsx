@@ -8,7 +8,9 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [error, setError] = useState<string | null>(null);
+  const [collectError, setCollectError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [collectLoading, setCollectLoading] = useState(false);
 
   const handlePayClick = async () => {
     setLoading(true);
@@ -23,13 +25,36 @@ export default function Home() {
       }
 
       const data = await response.json();
-      // console.log("Success:", data);
+      console.log("Success:", data);
       window.location.href = data.response_text;
     } catch (error: any) {
       setError(error.message);
       console.error("Error:", error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleColectClick = async () => {
+    setCollectLoading(true);
+    setCollectError(null);
+
+    try {
+      const response = await fetch("/api/collecte", { method: "POST" });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erreur lors du paiement");
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      // window.location.href = data.response_text;
+    } catch (error: any) {
+      setCollectError(error.message);
+      console.error("Error:", error.message);
+    } finally {
+      setCollectLoading(false);
     }
   };
 
@@ -106,15 +131,18 @@ export default function Home() {
               >
                 {loading ? "Loading..." : "Cotisation mensuelle"}
               </button>
-              <a
-                href="#"
+              <button
                 className="rounded-md bg-gradient-to-tl from-[#0891b2] to-[#0d9488] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+                onClick={handleColectClick}
               >
-                Collecte de fonds{" "}
-                <span aria-hidden="true" className="max-sm:hidden">
-                  →
-                </span>
-              </a>
+                {collectLoading ? (
+                  "Loading..."
+                ) : (
+                  <span aria-hidden="true" className="max-sm:hidden">
+                    Collecte de fonds →
+                  </span>
+                )}
+              </button>
             </div>
           </div>
         </div>
