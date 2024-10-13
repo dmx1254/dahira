@@ -12,6 +12,11 @@ export async function POST(request: Request) {
       name: "Konu Cheikh Oumar Foutiyou Tall",
       logo_url:
         "https://dahira-thierno-cheikh-talll.vercel.app/images/logo.jpeg",
+      website_url: "https://dahira-thierno-cheikh-talll.vercel.app/",
+    },
+    actions: {
+      callback_url:
+        "https://dahira-thierno-cheikh-talll.vercel.app/api/ipn-paydunya",
     },
   };
 
