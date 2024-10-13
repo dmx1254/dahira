@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     store: {
       name: "Konu Cheikh Oumar Foutiyou Tall",
       logo_url:
-        "https://dahira-thierno-cheikh-talll.vercel.app/images/logo.jpeg",
+        "https://dahira-thierno-cheikh-talll.vercel.app/logo.jpeg",
       website_url: "https://dahira-thierno-cheikh-talll.vercel.app/",
     },
     actions: {

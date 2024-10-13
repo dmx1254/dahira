@@ -53,19 +53,27 @@
     @apply text-[14px] leading-[18px] font-normal;
   }
 
-  @layer utilities {
-    .carte-membre::before {
-      position: absolute;
-      content: "";
-      background-image: url("../public/images/carte-membre.png");
-      height: 100%;
-      width: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.3;
-      top: -2%;
-      z-index: -1;
-    }
+  .carte-membre::before {
+    position: absolute;
+    content: "";
+    background-image: url("../public/images/carte-membre.png");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    top: -2%;
+    z-index: -1;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 
   .🤚 {
