@@ -37,3 +37,8 @@ export const deleteTalibe = async (talibeId: string) => {
     console.log(error);
   }
 };
+
+
+
+
+

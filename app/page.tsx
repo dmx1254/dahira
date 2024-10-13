@@ -94,8 +94,8 @@ export default function Home() {
 
   return (
     <div className="bg-white max-h-screen overflow-hidden">
-      <a href="tel:+221773214159"></a>
       <a
+        href="tel:+221773214159"
         className="fixed bottom-12 right-6 z-10 bg-green-600 p-2 rounded cursor-pointer"
         style={{
           boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",

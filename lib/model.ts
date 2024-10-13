@@ -35,6 +35,9 @@ const TalibeSchema = new mongoose.Schema(
   }
 );
 
+
+
+
 const TalibeModel =
   mongoose.models.talibe || mongoose.model("talibe", TalibeSchema);
 
