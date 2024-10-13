@@ -7,6 +7,7 @@ export async function POST(request: Request) {
       total_amount: 1000,
       description:
         "Cotisation mensuelle du dahira Konu Cheikh Oumar Foutiyou Tall",
+        
     },
     store: {
       name: "Konu Cheikh Oumar Foutiyou Tall",
