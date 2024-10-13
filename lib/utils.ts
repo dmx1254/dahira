@@ -52,3 +52,16 @@ export const pagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+
+export const headersKey: HEADER_KEY = {
+  "Content-Type": "application/json",
+  "PAYDUNYA-MASTER-KEY": process.env.PAYDUNYA_MASTER_KEYS!,
+  "PAYDUNYA-PRIVATE-KEY": process.env.PAYDUNYA_PRIVATE_KEY!,
+  "PAYDUNYA-TOKEN": process.env.PAYDUNYA_TOKEN!,
+};
+
+interface HEADER_KEY {
+  [key: string]: string;
+}
+

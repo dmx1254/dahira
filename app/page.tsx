@@ -1,19 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
-
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handlePayClick = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/paycotisation", { method: "POST" });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erreur lors du paiement");
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      // window.location.href = data.response_text;
+    } catch (error: any) {
+      setError(error.message);
+      console.error("Error:", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -82,17 +100,20 @@ export default function Home() {
               l'identification et la gestion des membres.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-gradient-to-tr from-[#22c55e] to-[#166534] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+              <button
+                className=" outline-none rounded-md bg-gradient-to-tr from-[#22c55e] to-[#166534] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+                onClick={handlePayClick}
               >
-                Cotisation mensuelle
-              </a>
+                {loading ? "Loading..." : "Cotisation mensuelle"}
+              </button>
               <a
                 href="#"
                 className="rounded-md bg-gradient-to-tl from-[#0891b2] to-[#0d9488] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
               >
-                Collecte de fonds <span aria-hidden="true" className="max-sm:hidden">→</span>
+                Collecte de fonds{" "}
+                <span aria-hidden="true" className="max-sm:hidden">
+                  →
+                </span>
               </a>
             </div>
           </div>
