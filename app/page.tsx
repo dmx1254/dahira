@@ -26,7 +26,7 @@ export default function Home() {
 
       const data = await response.json();
       console.log("Success:", data);
-      window.location.href = data.response_text;
+      // window.location.href = data.response_text;
     } catch (error: any) {
       setError(error.message);
       console.error("Error:", error.message);
@@ -35,7 +35,7 @@ export default function Home() {
     }
   };
 
-  const handleColectClick = async () => {
+  const handleCollectClick = async () => {
     setCollectLoading(true);
     setCollectError(null);
 
@@ -133,7 +133,7 @@ export default function Home() {
               </button>
               <button
                 className="rounded-md bg-gradient-to-tl from-[#0891b2] to-[#0d9488] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
-                onClick={handleColectClick}
+                onClick={handleCollectClick}
               >
                 {collectLoading ? (
                   "Loading..."
