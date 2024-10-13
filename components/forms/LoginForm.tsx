@@ -74,7 +74,7 @@ const LoginForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 w-full"
+          className="space-y-4 w-full relative"
         >
           <FormField
             control={form.control}
@@ -101,18 +101,18 @@ const LoginForm = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem className="relative">
+              <FormItem>
                 <FormLabel>Mot de passe</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Mot de passe"
                     type="password"
-                    className="bg-white border-gray-400 text-black focus-visible:ring-0 pl-8"
+                    className="bg-white border-gray-300 py-5 text-black focus-visible:ring-0 pl-8"
                     {...field}
                     onChange={field.onChange}
                   />
                 </FormControl>
-                <LockKeyhole size={18} className="absolute top-[46%] left-[3%] text-gray-800" />
+                <LockKeyhole size={18} className="absolute top-[56%] left-[3%] text-gray-800" />
                 <FormMessage />
               </FormItem>
             )}

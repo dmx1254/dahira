@@ -95,12 +95,9 @@ export async function getDahiraNames() {
   noStore();
 
   try {
-    const dahiranames = await TalibeModel.find().select("dahiraname");
+    const dahiranames = await TalibeModel.distinct("dahiraname");
     const dahiras = JSON.parse(JSON.stringify(dahiranames));
-    const uniqueDahiraNames = [
-      ...new Set(dahiras.map((dahira) => dahira.dahiraname)),
-    ];
-    return uniqueDahiraNames;
+    return dahiras;
   } catch (error: any) {
     throw new Error(error);
   }
