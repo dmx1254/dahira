@@ -1,3 +1,4 @@
+import CotisationModel from "./cotisationModel";
 import { connectDB } from "./db";
 import TalibeModel from "./model";
 import { parseStringify } from "./utils";

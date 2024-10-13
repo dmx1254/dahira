@@ -13,6 +13,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { CloudUpload, PhoneCall } from "lucide-react";
 
 export default function Home() {
   const [open, setOpen] = useState<boolean>(false);
@@ -92,35 +93,40 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav
-          aria-label="Global"
-          className="flex items-center justify-between px-6 py-4 lg:px-8"
+    <div className="bg-white max-h-screen overflow-hidden">
+      <a href="tel:+221773214159"></a>
+      <a
+        className="fixed bottom-12 right-6 z-10 bg-green-600 p-2 rounded cursor-pointer"
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        }}
+      >
+        <PhoneCall size={24} className="text-white" />
+      </a>
+      <nav
+        aria-label="Global"
+        className="flex items-center justify-between px-6 py-4 lg:px-8"
+      >
+        <div className="flex lg:flex-1">
+          <span className="sr-only">Dahira koonu</span>
+          <Image
+            alt="koonu logo"
+            height={100}
+            width={100}
+            src="/images/logo-koonu.png"
+            className=""
+          />
+        </div>
+
+        <Link
+          href="/devenir-membre-koonu"
+          className="text-sm font-semibold leading-6 text-gray-900"
         >
-          <div className="flex lg:flex-1">
-            <span className="sr-only">Dahira koonu</span>
-            <Image
-              alt="koonu logo"
-              height={100}
-              width={100}
-              src="/images/logo-koonu.png"
-              className=""
-            />
-          </div>
+          Dahira KONU <span aria-hidden="true">&rarr;</span>
+        </Link>
+      </nav>
 
-          <div className="lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              href="/devenir-membre-koonu"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Devenir Membre <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
-        </nav>
-      </header>
-
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative  isolate px-6 -pt-4 -mt-16 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -134,21 +140,21 @@ export default function Home() {
           />
         </div>
         <div className="relative mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 carte-membre">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+          <div className="sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-center">
               Devenir membre du dahira de konu.{" "}
               <Link
                 href="/devenir-membre-koonu"
                 className="font-semibold text-green-600 text-sm"
               >
                 <span aria-hidden="true" className="absolute inset-0" />
-                s'identifier <span aria-hidden="true">&rarr;</span>
+                Devenir Membre <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Collecte de Données pour les Dahiras
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl max-sm:mt-4">
+              Collecte Dahira KONU
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Nous avons mis en place un système sécurisé permettant de
@@ -171,25 +177,31 @@ export default function Home() {
                 >
                   Collecte de fonds
                 </button>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-[525px] flex flex-col items-end">
                   <DialogHeader>
                     <DialogTitle>Collecte Dahira KONU</DialogTitle>
                     <DialogDescription>
-                      Le Dahira KONU, sous la direction de Cheikh Oumar ibn
-                      Thierno Mouhamadoul Bachir Tall, promeut l'islam et les
-                      enseignements de Cheikh Oumar Al Foutiyou Tall.
-                      L'association vise à collecter 5 millions de francs CFA
-                      pour financer ses activités, acheter des produits
-                      essentiels, et encourager l'agriculture et la
-                      participation numérique via un Hackathon.
+                      Le Dahira KONU est une association religieuse islamique à
+                      but non lucratif, réunissant hommes, femmes et jeunes,
+                      engagés dans la promotion de l’islam, de la Sunnah du
+                      Prophète Seydina Mouhamad (PSL) et des enseignements de
+                      Cheikh Oumar Al Foutiyou Tall, pionnier de l’expansion de
+                      l’islam et de la Tariqa Tidjane en Afrique noire. L'œuvre
+                      se poursuit sous la direction de leur guide spirituel,
+                      Cheikh Oumar ibn Thierno Mouhamadoul Bachir Tall, fidèle
+                      héritier de l’héritage de son illustre grand-père.
+                      L'objectif est de collecter 5 millions de francs CFA pour
+                      financer les dahiras, acheter du sucre, du riz, de
+                      l’huile, soutenir l’agriculture, et promouvoir le
+                      numérique avec un Hackathon au service du Dahira.
                     </DialogDescription>
                   </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
+                  <div className="w-full grid gap-4 py-4">
+                    <div className="flex items-center gap-4">
                       <label htmlFor="amount" className="text-right">
                         Montant
                       </label>
-                      <div className="col-span-3 relative">
+                      <div className="w-full relative">
                         <Input
                           id="amount"
                           type="number"
@@ -204,7 +216,7 @@ export default function Home() {
                   </div>
                   <DialogFooter>
                     <button
-                      className="rounded-md bg-gradient-to-tl from-[#0891b2] to-[#0d9488] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+                      className="rounded-md bg-gradient-to-tl from-[#0891b2] to-[#0d9488] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 flex items-end justify-end self-end"
                       onClick={handleCollectClick}
                       disabled={Number(amount) < 100}
                     >

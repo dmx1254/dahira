@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const data = {
     invoice: {
-      total_amount: 1000,
+      total_amount: 2000,
       description:
         "Cotisation mensuelle du dahira Konu Cheikh Oumar Foutiyou Tall",
         

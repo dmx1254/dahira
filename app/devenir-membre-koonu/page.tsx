@@ -2,7 +2,7 @@ import RegisterForm from "@/components/forms/RegisterForm";
 import Image from "next/image";
 import React from "react";
 
-const DevenirMembreKoonu = () => {
+const DevenirMembreKoonu =  () => {
   return (
     <div className="relative w-full flex min-h-screen flex-col items-center justify-center home p-4">
       <div className="absolute left-[2%] top-[1%] max-lg:hidden">
