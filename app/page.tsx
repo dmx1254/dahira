@@ -23,8 +23,8 @@ export default function Home() {
       }
 
       const data = await response.json();
-      console.log("Success:", data);
-      // window.location.href = data.response_text;
+      // console.log("Success:", data);
+      window.location.href = data.response_text;
     } catch (error: any) {
       setError(error.message);
       console.error("Error:", error.message);
