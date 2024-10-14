@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     try {
       const notification = await request.json();
       await CotisationModel.create(notification);
-    //   return NextResponse.json(notification, { status: 200 });
+    return NextResponse.json(notification, { status: 200 });
     } catch (error: any) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
