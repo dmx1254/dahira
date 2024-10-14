@@ -12,7 +12,6 @@ export async function POST(request: Request) {
 
     await CotisationModel.create(notification);
 
-    return NextResponse.json({test: "testing ping"}, { status: 200 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
