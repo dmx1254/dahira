@@ -112,3 +112,14 @@ export async function deleteOneTalibe(talibeId: string) {
     throw new Error(error);
   }
 }
+
+export async function checkIsTalibeValid(talibeId: string) {
+  try {
+    const talibe = await TalibeModel.findOne({ _id: talibeId })
+      .select("_id")
+      .select("fullname");
+    return JSON.parse(JSON.stringify(talibe));
+  } catch (error: any) {
+    throw new Error(error);
+  }
+}

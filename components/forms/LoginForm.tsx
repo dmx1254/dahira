@@ -112,7 +112,7 @@ const LoginForm = () => {
                     onChange={field.onChange}
                   />
                 </FormControl>
-                <LockKeyhole size={18} className="absolute top-[56%] left-[3%] text-gray-800" />
+                <LockKeyhole size={18} className="absolute top-[58%] left-[3%] text-gray-800" />
                 <FormMessage />
               </FormItem>
             )}

@@ -63,3 +63,8 @@ export interface TalibeUser {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface TalibeCkeck {
+  _id: string;
+  fullname: string;
+}

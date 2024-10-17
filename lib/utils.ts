@@ -70,3 +70,24 @@ export const setup: HEADER_KEY = {
   "PAYDUNYA-PRIVATE-KEY": process.env.PRIVATE_COLLECTE_KEY!,
   "PAYDUNYA-TOKEN": process.env.TOKEN_COLLECTE!,
 };
+
+export const dahirasName = [
+  "jaxaay 1",
+  "jaxaay 2",
+  "kounoune",
+  "darou thioube",
+  "el hadji pathe",
+  "ndiague",
+  "yeumbeul ascena",
+  "darourahmane",
+  "gadaye",
+  "serigne-assane-guediawaye",
+  "cheikh-wade-guediawaye",
+  "gouye-fatou-maiga",
+  "golf",
+  "gounass",
+  "niatty-mbane",
+  "leona-thiaroye",
+  "pikine-rue 10",
+  "gounass station toure",
+];

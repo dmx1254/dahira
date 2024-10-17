@@ -19,9 +19,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { z } from "zod";
 import FileUploader from "../FileUploader";
-import { convertFileToBase64 } from "@/lib/utils";
+import { convertFileToBase64, dahirasName } from "@/lib/utils";
 import { registerTalibe } from "@/lib/actions";
 import { toast } from "sonner";
 
@@ -47,6 +57,7 @@ const RegisterForm = () => {
         ...values,
         profile: picture,
       };
+
       const patient = await registerTalibe(data);
       if (patient.user) {
         setIsLoading(false);
@@ -101,17 +112,42 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Nom du dahira</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder="ex. Dahira Pikine"
-                    className="bg-white border-gray-400 text-black focus-visible:ring-0"
-                    {...field}
-                    onChange={field.onChange}
-                  />
+                  <Select onValueChange={field.onChange}>
+                    <SelectTrigger className="w-full border border-gray-400 outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none focus-visible:ring-offset-0">
+                      <SelectValue placeholder="Selectionner un dahira" />
+                    </SelectTrigger>
+                    <SelectContent className="border border-gray-400">
+                      <SelectGroup>
+                        <SelectLabel>Nom du dahira</SelectLabel>
+                        {dahirasName.map((dahira) => (
+                          <SelectItem
+                            key={dahira}
+                            value={dahira}
+                            className="uppercase"
+                          >
+                            {dahira}
+                          </SelectItem>
+                        ))}
+
+                        <SelectLabel>Autres</SelectLabel>
+                        <SelectItem value="konu ucad" className="uppercase">
+                          Konu Ucad
+                        </SelectItem>
+                        <SelectItem value="konu ugb" className="uppercase">
+                          Konu UGB
+                        </SelectItem>
+                        <SelectItem value="konu national" className="uppercase">
+                          Konu National
+                        </SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="phone"
