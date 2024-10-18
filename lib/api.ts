@@ -50,31 +50,26 @@ export async function getTalibesAndTotalPages(
 
   const matchConditions: any = {};
 
-  // Ajouter une condition pour le titre s'il est spécifié
   if (query && query.trim() !== "") {
     matchConditions.fullname = { $regex: query, $options: "i" };
   }
 
-  // Ajouter une condition pour la catégorie si elle est spécifiée
   if (dahiraname && dahiraname.trim() !== "") {
     matchConditions.dahiraname = dahiraname;
   }
 
   try {
-    // Récupérer le nombre total de documents
     const totalDocuments = await TalibeModel.countDocuments(matchConditions);
-
-    // Calculer le nombre total de pages
     const totalPages = Math.ceil(totalDocuments / itemsPerPage);
 
-    // Récupérer les articles correspondants aux critères de filtrage avec pagination
     const talibes = await TalibeModel.aggregate([
+      // {
+      //   $sort: { createdAt: 1 },
+      // },
       {
         $match: matchConditions,
       },
-      {
-        $sort: { createdAt: 1 },
-      },
+
       {
         $skip: offset,
       },
@@ -88,7 +83,8 @@ export async function getTalibesAndTotalPages(
       totalPages,
     };
   } catch (error: any) {
-    throw new Error(error);
+    console.error("Error in getTalibesAndTotalPages:", error);
+    throw new Error(`Failed to fetch talibes: ${error.message}`);
   }
 }
 
