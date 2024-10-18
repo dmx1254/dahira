@@ -9,7 +9,8 @@ export const registerTalibe = async (talibe: Talibe) => {
   try {
     const response = await createTalibe(talibe);
     if (response.error) {
-      throw new Error(response.error);
+      // throw new Error(response.error);
+      return response
     } else {
       return parseStringify(response);
     }

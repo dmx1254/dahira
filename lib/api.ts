@@ -19,13 +19,14 @@ export async function createTalibe(talibe: Talibe) {
       };
 
     const savedUser = await TalibeModel.create(talibe);
-    const newuser = parseStringify(savedUser);
+    const newuser = JSON.parse(JSON.stringify(savedUser));
     return {
       error: "",
       user: newuser,
       message: "Merci pour votre inscription ! Bienvenue parmi nous.",
     };
   } catch (error: any) {
+    console.log(error);
     throw new Error(error);
   }
 }

@@ -59,7 +59,11 @@ const RegisterForm = () => {
       };
 
       const patient = await registerTalibe(data);
-      if (patient.user) {
+      if (patient.error) {
+        toast.error(patient.error, {
+          style: { color: "red" },
+        });
+      } else {
         setIsLoading(false);
         toast.success(patient.message, {
           style: { color: "green" },
@@ -67,11 +71,12 @@ const RegisterForm = () => {
         form.reset();
       }
     } catch (error: any) {
-      if (error?.message) {
-        toast.error(error?.message, {
-          style: { color: "red" },
-        });
-      }
+      // if (error?.message) {
+      //   toast.error(error?.message, {
+      //     style: { color: "red" },
+      //   });
+      // }
+      console.log(error.message);
     }
     setIsLoading(false);
   }
