@@ -93,7 +93,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white max-h-screen overflow-hidden">
+    <div className="bg-white max-h-screen overflow-y-auto">
       <a
         href="tel:+221773214159"
         className="fixed bottom-12 right-6 z-10 bg-green-600 p-2 rounded cursor-pointer"
