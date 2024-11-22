@@ -46,22 +46,22 @@ const DialogPassword = ({
         onPointerDownOutside={(e) => e.preventDefault()}
       >
         <DialogHeader>
-          <DialogTitle>Entrer le mot de passe</DialogTitle>
+          <DialogTitle>11 édition de la Ziarra annuelle</DialogTitle>
           <DialogDescription>
-            Veuillez entrer votre mot de passe pour continuer
+            Veuillez saisir votre code d'accès
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
           <div className="flex flex-col items-start gap-2">
             <Label htmlFor="password" className="text-right">
-              Password
+              Code d'accès
             </Label>
             <Input
               id="password"
               type="password"
               value={password}
-              placeholder="Mot de passe"
+              placeholder="code d'accès"
               onChange={(e) => setPassword(e.target.value)}
               className="col-span-3 p-4 border-gray-200 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />

@@ -27,7 +27,7 @@ const CheckAccess = ({ talibe }: { talibe: TalibeCkeck }) => {
             alt="check talibe image"
           />
           <p className="text-2xl font-extrabold -mt-10 text-green-700">
-            Access validé
+            Access autorisé
           </p>
         </div>
       ) : (
